@@ -55,8 +55,9 @@ else
 			EXT=$(echo "$CC" | sed 's/_.*//')
 			if [ ! -f "Makefile.$EXT" ]; then
 				echo "There must be a file 'Makefile.$EXT' to compile it with $CC"
-				cp Makefile Makefile.gcc
-				exit 1
+				#cp Makefile Makefile.gcc
+				ln -s Makefile.$EXT Makefile
+				#exit 1
 			else
 				# backup default GCC Makefile and create a link to other
 				if [ -f Makefile ]; then
