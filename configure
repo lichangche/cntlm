@@ -52,20 +52,13 @@ else
 			fi
 			;;
 		*)
-			EXT=$(echo "$CC" | sed 's/_.*//')
-			if [ ! -f "Makefile.$EXT" ]; then
-				echo "There must be a file 'Makefile.$EXT' to compile it with $CC"
-				#cp Makefile Makefile.gcc
-				#exit 1
-				ln -s Makefile Makefile.$EXT
-			else
-				# backup default GCC Makefile and create a link to other
-				if [ -f Makefile ]; then
-					mv Makefile Makefile.gcc
-				fi
-
-				ln -s Makefile.$EXT Makefile
+			# backup default GCC Makefile and create a link to other
+			if [ -f Makefile ]; then
+				mv Makefile Makefile.gcc
 			fi
+
+			EXT=`echo "$CC" | sed 's/_.*//'`
+			ln -s Makefile.$EXT Makefile
 			;;
 	esac
 fi
