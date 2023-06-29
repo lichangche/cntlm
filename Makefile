@@ -86,6 +86,7 @@ all: $(NAME)
 $(NAME): configure-stamp $(OBJS)
 	@echo "Linking $@"
 	@$(CC) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
+	file  $@
 
 main.o: main.c
 	@echo "Compiling $<"
