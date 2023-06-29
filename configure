@@ -53,7 +53,7 @@ else
 			;;
 		*)
 			# backup default GCC Makefile and create a link to other
-			cp Makefile.gcc Makefile
+			echo "skip cp Makefile.gcc Makefile"
 			;;
 	esac
 fi
@@ -102,7 +102,7 @@ do
 			;;
 		*)
 			echo "Unknown flag $1"
-			rm -f $CONFIG
+			#rm -f $CONFIG
 			;;
 	esac
 	shift
@@ -110,4 +110,6 @@ done
 if [ -f $CONFIG ]; then
 	echo "" >> $CONFIG
 	echo "#endif // CONFIGURE_CONFIG_H" >> $CONFIG
+else
+	echo "$CONFIG not generated"
 fi
