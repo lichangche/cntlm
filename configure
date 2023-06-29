@@ -53,12 +53,7 @@ else
 			;;
 		*)
 			# backup default GCC Makefile and create a link to other
-			if [ -f Makefile ]; then
-				mv Makefile Makefile.gcc
-			fi
-
-			EXT=`echo "$CC" | sed 's/_.*//'`
-			ln -s Makefile.$EXT Makefile
+			cp Makefile.gcc Makefile
 			;;
 	esac
 fi
